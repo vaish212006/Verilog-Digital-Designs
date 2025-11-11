@@ -1,49 +1,6 @@
-***half adder*** - verilog 
-
-**adder modeling**
-
-
 module project_1(i1,i2,sum,carry);
 input i1,i2;
 output sum,carry;
 xor g1(sum,i1,i2);
 and g2(carry,i1,i2);
 endmodule
-
-
-
-**dataflow**
-
-
-module project_2(i1,i2,sum,carry);
-input i1,i2;
-output sum,carry;
-assign sum = i1^i2;
-assign carry = i1&i2;
-endmodule
-
-
-**behavioural**
-
-
-module project_5(i1,i2,sum,carry);
-input i1,i2;
-output sum,carry;
-reg sum,carry;
-always@(i1 or i2)
-begin 
-if(i1==i2)
-sum=1'b0;
-else 
-sum=1'b1;
-end 
-
-always@(i1 or i2)
-begin 
-if(i1==1'b1 & i2==1'b1)
-carry=1'b1;
-else 
-carry=1'b0;
-end
-endmodule
-
