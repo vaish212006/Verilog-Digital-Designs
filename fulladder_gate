@@ -1,0 +1,11 @@
+module project_fulladder(A,B,C,sum,carry);
+input A,B,C;
+output sum,carry;
+wire w1, w2, w3, w4;
+xor g1(w1,A,B);
+xor g2(sum,w1,C);
+and g3(w2,A,B);
+and g4(w3,A,C);
+and g5(w4,B,C);
+or g6(carry,w2,w3,w4);
+endmodule
