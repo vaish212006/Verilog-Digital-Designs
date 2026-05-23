@@ -1,0 +1,19 @@
+module project_9(y,a,b,c,d,s0,s1);
+input a,b,c,d,s0,s1;
+output reg y;
+always@(s0 or s1)
+begin
+if(s0==1'b0 & s1==1'b0) begin
+y=a;
+end
+else if(s0==1'b0 & s1==1'b1) begin
+y=b;
+end
+else if(s0==1'b1 & s1==1'b0) begin
+y=c;
+end
+else begin
+y=d;
+end
+end
+endmodule
