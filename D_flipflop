@@ -1,0 +1,38 @@
+module dflipflop(q,clk,reset,d);
+output reg q;
+input clk,reset,d;
+always @(reset or d) 
+begin
+if (reset==1'b1) 
+begin
+q=1'b0;
+end 
+else
+q=d; 
+end
+endmodule
+
+
+***test bench***
+
+		clk = 0;
+		forever #10 clk=(~clk);
+		end
+		initial begin
+		reset = 1'b0;
+		d = 1'b0;
+
+		// Wait 100 ns for global reset to finish
+		#100;
+		reset = 1'b0;
+		d = 1'b1;
+		#100;
+		reset = 1'b1;
+		d = 1'b0;
+		#100;
+		reset = 1'b1;
+		d = 1'b1;
+
+	end
+      
+endmodule
